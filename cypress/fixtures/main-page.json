@@ -1,0 +1,16 @@
+{
+    "title": "Automation Testing Practice",
+    "formheading": "GUI Elements",
+    "name":"Name:",
+    "email": "Email:",
+    "phoneno": "Phone:",
+    "pnumber":"7020411938",
+    "faddress": "Pune, Maharashtra",
+    "days": "Days:",
+    "address": "Address:",
+    "country": "Country:",
+    "color": "Colors:",
+    "fname": "Aditi Paikrao",
+    "fmail": "aditipaikrao@gmail.com",
+    "gender": "Gender:"
+}

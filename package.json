@@ -1,0 +1,16 @@
+{
+  "name": "cypressproject-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "edge-execution": "npx run cypress cypress/e2e/Main-page/TC01-main-page.spec.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.16.0"
+  }
+}
