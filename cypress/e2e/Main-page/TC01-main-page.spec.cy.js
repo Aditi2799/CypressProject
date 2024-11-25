@@ -182,7 +182,7 @@ describe('', () => {
     MainPage.getDatePickerField().click();
     MainPage.getDatePickerCalender().should('be.visible');
 
-    cy.selectYear(2022);
+    cy.selectYear(2024);
     cy.selectMonth('June');
     cy.selectDates(13);
   

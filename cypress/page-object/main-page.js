@@ -54,7 +54,7 @@ class MainPage {
       }
 
       static selectMonth() {
-        return cy.get(`.ui-datepicker-month`);
+        return cy.get('[class*="ui-datepicker-month"]');
       }
       
       static selectYear() {
