@@ -1,5 +1,7 @@
 
 import MainPage from '../../page-object/main-page.js';
+import MainPage2 from '../../page-object/main-page2.js';
+import 'cypress-file-upload';
 
 
 describe('', () => {
@@ -177,7 +179,7 @@ describe('', () => {
     
   });
   
-  it.only('Verify Date Picker field and select date', () => {
+  it('Verify Date Picker field and select date', () => {
     MainPage.getDatePickerFieldName().should('be.visible');
     MainPage.getDatePickerField().click();
     MainPage.getDatePickerCalender().should('be.visible');
@@ -189,10 +191,62 @@ describe('', () => {
 
   });
 
-  it('Verify Form name of the page ', () => {
-    cy.visit('https://testautomationpractice.blogspot.com/')
-    MainPage.getFormHeading().should('be.visible').contains(data.formheading);
+  it('Verify Date Picker field2 and select date2', () => {
+    MainPage2.getDatePickerFieldName2().should('be.visible');
+    MainPage2.getDatePickerField2().should('be.visible').click();
+    MainPage2.getDatePickerCalender2().should('be.visible');
+    MainPage2.selectMonth2().select("2");
+    MainPage2.selectYear2().select("2022");
+    MainPage2.selectDate2().contains(20).click();
   });
 
+  it('Verify single file upload', () => {
+   MainPage2.getSingleFileSelected().should('not.be.visible')
+    MainPage2.getSingleFileUploadField().selectFile('C:\\Users\\uy461f\\Desktop\\Project\\CypressProject-main\\cypress\\fixtures\\files\\screenshot_1.png');
+    MainPage2.getUploadSingleFileButton().click();
+    MainPage2.getSingleFileSelected().should('be.visible');
+   
+  });
+
+  it('Verify multiple files upload', () => {
+    MainPage2.getMultipleFileSelected().should('not.be.visible')
+    const files = [
+      'cypress/fixtures/files/screenshot_1.png',
+      'cypress/fixtures/files/screenshot_2.png'
+    ];
+    MainPage2.getMultipleFilesSelected().selectFile(files);
+    MainPage2.getUploadMultipleFileButton().click();
+    MainPage2.getMultipleFileSelected().should('be.visible');
+    
+   });
+
+
+   it('Verify static table and there column headers', () => {
+    MainPage2.getStaticTableName().should('be.visible').contains("Static Web Table");
+    MainPage2.getBookNameColumnHeader().should('be.visible');
+    MainPage2.getAuthorColumnHeader().should('be.visible');
+    MainPage2.getSubjectColumnHeader().should('be.visible');
+    MainPage2.getPriceColumnHeader().should('be.visible');
+   });
+
+   it('Verify all the rows data in static table', () => {
+    MainPage2.getFirstRowStaticTable().should('be.visible');
+    MainPage2.getSecondRowStaticTable().should('be.visible');
+    MainPage2.getThirdRowStaticTable().should('be.visible');
+    MainPage2.getForthRowStaticTable().should('be.visible');
+    MainPage2.getFifthRowStaticTable().should('be.visible');
+    MainPage2.getSixthRowStaticTable().should('be.visible');
+   
+   });
+
+   it.only('Verify static table and there column headers', () => {
+    MainPage2.getDynamicTableTitle().should('be.visible');
+    MainPage2.getNameColumnHeader().should('contain','Name');
+    MainPage2.getCPUColumnHeader().should('contain','CPU (%)');
+    MainPage2.getNameColumnHeader().should('contain','Memory (MB)');
+    MainPage2.getNameColumnHeader().should('contain','Disk (MB/s)');
+    MainPage2.getNameColumnHeader().should('contain','Network (Mbps)');
+   });
+   
 
 });
